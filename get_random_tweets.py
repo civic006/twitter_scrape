@@ -52,8 +52,12 @@ class listener(StreamListener):
 
         exit()
 
-    def on_error(self, status):
-        print statuses
+    def on_error(self, status_code):
+        if status_code == 420:
+		#returning False in on_data disconnects the stream
+		print status_code
+		return False
+	print status_code
 
 
 #Beginning of the specific code
